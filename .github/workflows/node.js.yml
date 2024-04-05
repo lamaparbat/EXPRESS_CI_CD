@@ -10,6 +10,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: development
+
+    env:
+      PORT: ${{ vars.PORT }}
 
     strategy:
       matrix:
@@ -17,9 +21,8 @@ jobs:
 
     steps:
     - name: Read PORT env variable
-      run: echo "PORT VALUE ${{ secrets.PORT }}"
-    - name: Read MONGO env variable
-      run: echo "MONGO VALUE ${{ secrets.MONGO_URI }}"
+      run: echo "PORT VALUE ${{ vars.PORT }}"
+      
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
