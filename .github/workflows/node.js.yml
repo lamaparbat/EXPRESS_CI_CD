@@ -15,9 +15,9 @@ jobs:
       matrix:
         node-version: [16.x]
 
-      env:
-        PORT: ${{ secrets.PORT }}
-        MONGO_URI: ${{ secrets.MONGO_URI }}
+    env:
+      PORT: ${{ secrets.PORT }}
+      MONGO_URI: ${{ secrets.MONGO_URI }}
 
     steps:
     - uses: actions/checkout@v3
