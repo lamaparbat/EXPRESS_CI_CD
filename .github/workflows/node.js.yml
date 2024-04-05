@@ -14,6 +14,7 @@ jobs:
 
     env:
       PORT: ${{ vars.PORT }}
+      MONGO_URI: ${{ vars.PORT }}
 
     strategy:
       matrix:
@@ -22,7 +23,8 @@ jobs:
     steps:
     - name: Read PORT env variable
       run: echo "PORT VALUE ${{ vars.PORT }}"
-      
+    - name: Read Mongodb env variable
+      run: echo "PORT VALUE ${{ vars.MONGO_URI }}"
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
