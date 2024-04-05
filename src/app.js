@@ -5,7 +5,7 @@ const { startMongoConnection } = require('./services/mongodb');
 
 dotenv.config();
 
-startMongoConnection().then((res) => {
+startMongoConnection().then(() => {
     console.log('Mongodb connection successfull!');
 
     const app = express();
@@ -19,4 +19,4 @@ startMongoConnection().then((res) => {
     });
 
     app.listen(port, () => console.log(`Server listening on ${port}`));
-})
+});
