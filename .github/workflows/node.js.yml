@@ -14,7 +14,7 @@ jobs:
 
     env:
       PORT: ${{ vars.PORT }}
-      MONGO_URI: ${{ vars.PORT }}
+      MONGO_URI: ${{ vars.MONGO_URI }}
 
     strategy:
       matrix:
