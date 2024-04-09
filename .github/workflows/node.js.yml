@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: development
 
-    env:
-      PORT: ${{ vars.PORT }}
-      MONGO_URI: ${{ vars.MONGO_URI }}
-
     strategy:
       matrix:
         node-version: [16.x, 20.x]
@@ -31,4 +27,4 @@ jobs:
       # - run: npm test --if-present
       - run: |
           touch .env
-          echo `${{ secrets.DEV_ENV }} > .env
+          echo "${{ secrets.DEV_ENV }}" > .env
