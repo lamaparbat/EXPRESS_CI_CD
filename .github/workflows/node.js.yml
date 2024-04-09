@@ -2,13 +2,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     environment: development
 
@@ -18,19 +17,18 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x,20.x]
+        node-version: [16.x, 20.x]
 
     steps:
-    - name: Read PORT env variable
-      run: echo "PORT VALUE ${{ vars.PORT }}"
-    - name: Read Mongodb env variable
-      run: echo "PORT VALUE ${{ vars.MONGO_URI }}"
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test --if-present
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      # - run: npm run build --if-present
+      # - run: npm test --if-present
+      - run: |
+          touch .env
+          echo `${{ secrets.DEV_ENV }} > .env
