@@ -18,5 +18,5 @@ startMongoConnection().then(() => {
         res.send("Hello From LamaDev 123 !!")
     });
 
-    app.listen(port, () => console.log(`Server listening on ${port}`));
+    app.listen(port, () => console.log(`Server listening on ${port}.`));
 });
