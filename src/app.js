@@ -15,7 +15,7 @@ startMongoConnection().then(() => {
     app.use(express.json());
 
     app.get('/', (req, res) => {
-        res.send("Hello From LamaDev. yooooo wassup bro !!")
+        res.send("Hello From LamaDev. 123 wassup bro !!")
     });
 
     app.listen(port, () => console.log(`Server listening on ${port}.`));
