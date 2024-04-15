@@ -18,5 +18,12 @@ startMongoConnection().then(() => {
         res.send("Hello From LamaDev. wassup bro !!")
     });
 
+    app.get('/users', (req, res) => {
+        res.send({
+            name: 'John',
+            age: '23'
+        })
+    });
+
     app.listen(port, () => console.log(`Server listening on ${port}.`));
 });
